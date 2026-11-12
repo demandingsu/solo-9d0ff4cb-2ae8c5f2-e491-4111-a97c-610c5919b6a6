@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    container_name: municipal-notice-integrity
+    ports:
+      - "8000:8000"
+    environment:
+      INTEGRITY_DB_PATH: /data/integrity.db
+      FETCH_TIMEOUT: "20"
+      TZ: Asia/Shanghai
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
